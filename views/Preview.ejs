@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+     <style>
+      header {
+    background-color: #0f1111;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  .subHeader{
+    background-color: #232f3e;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+  .subHeader ul{
+    padding: 0;
+    margin: 0;
+  }
+  .subHeader ul li{
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px;
+  }
+  nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .nav01 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+  }
+  .nav01 img {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav02 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10%;
+  }
+  .nav02img {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav02 img {
+    width: 50%;
+  }
+  
+  .nav02text span:nth-child(1) {
+    color: #ccc;
+    font-size: 14px;
+  }
+  .nav02text span:nth-child(3) {
+    font-size: 17px;
+    line-height: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .nav03 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav03 input {
+    width: 80%;
+    padding: 0.7rem;
+    /* line-height: 15px; */
+    margin: 0;
+    border: 0;
+    font-size: 15px;
+    outline: 0;
+    box-shadow: none;
+    text-indent: 8px;
+    direction: ltr;
+  }
+  .nav03 button img {
+    width: 50%;
+    height: 60%;
+  }
+  .nav03 button {
+    width: 60px;
+    height: 40px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav03 button:nth-child(1) img {
+    width: 10px;
+    height: 10px;
+  }
+  .nav03 button:nth-child(1) {
+    background-color: #ccc;
+    border-radius: 5px 0px 0 5px;
+    font-family: "Amazon Ember", sans-serif;
+    color: #555;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .nav03 button:nth-child(3) {
+    background-color: #f89406;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .nav04 {
+    width: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+  .nav04 img {
+    width: 50%;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .mainImg {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: sticky;
+    top: 5px;
+  }
+  .mainContent {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fff;
+    height: 100%;
+    overflow: hidden;
+  }
+  .Content {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .AmazonHeading {
+    width: 100%;
+  }
+  .AmazonHeading h1 {
+    overflow-wrap: anywhere;
+    font-weight: 300;
+  }
+  .ListingImage img {
+    width: 100%;
+  }
+  .ListingImage {
+    width: 10%;
+    margin-left: 10px;
+  }
+  .mainBigImage {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainBigImage img {
+    width: 95%;
+  }
+  .AmazonHeading a{
+    color: #007185;
+    text-decoration: none;
+  }
+  
+  .AmazonHeading a:hover{
+    color: #c7511f;
+    text-decoration:underline;
+  }
+  .stars{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 25px;
+  }
+  .starNumber{
+    margin-right: 8px;
+    margin-top: 5px;
+  }
+  .starImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ratingDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+  }
+  .starImage img{
+    width: 100%;
+    height: 20px;
+    object-fit: cover;
+  }
+  .starImage img:nth-child(1){
+    height: 80px;
+  }
+  .brandDetail h2{
+    color: #007600;
+    font-size: 18px;
+    line-height: 24px;
+    width: 85%;
+    font-weight: 300;
+  }
+  .brandDetail{
+    height: 100%;
+  }
+  .brandDetail td{
+    width: 140px;
+    padding: 5px;
+  }
+  .AplusImage{
+    margin-top: 1rem;
+  }
+  .AplusImage img{
+    width: 100%;
+    margin-top: -7px;
+  }
+     </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav01">
+          <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+        </div>
+        <div class="nav02">
+          <div class="nav02img">
+            <img src="../Img/location.png" alt="" srcset="" />
+          </div>
+          <div class="nav02text">
+            <span>Deliver To</span><br />
+            <span>India</span>
+          </div>
+        </div>
+        <div class="nav03">
+          <button>
+            All
+            <img src="../public/Img/downward-arrow.png" alt="" srcset="" />
+          </button>
+          <input type="text" placeholder="Search Amazon" />
+          <button><img src="../Img/search.png" alt="" srcset="" /></button>
+        </div>
+        <div class="nav04">
+          <img src="../Img/Flag_of_the_United_States.png" alt="" srcset="" />
+          EN
+        </div>
+        <div class="nav05">
+          <span>Account & Lists</span>
+        </div>
+        <div class="nav06">
+          <span
+            >Returns <br />
+            & Order</span
+          >
+        </div>
+        <div class="nav07">Cart</div>
+      </nav>
+    </header>
+    <div class="subHeader">
+      <ul>
+        <li>All</li>
+        <li>Today's Deals</li>
+        <li>Customer Service</li>
+        <li>Dhruv's Amazon.com</li>
+        <li>Buy Again</li>
+        <li>Sell</li>
+        <li>Gift Cards</li>
+        <li>Browsing History</li>
+        <li>Registry</li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="mainImg">
+        <div class="ListingImage">
+          <% textModel.imgPaths.forEach((value)=> {%>
+          <img id="SmallListingImage" src="<%= value %>" alt="" srcset="" />
+          <% });%>
+        </div>
+        <div class="mainBigImage image-container" id="image-container">
+          <img src="<%= textModel.imgPaths[0] %>" alt="" srcset="" />
+          <div id="mouse-overlay"></div>
+          <div id="overlay"></div>
+        </div>
+      </div>
+      <div class="mainContent">
+        <div class="Content">
+          <div class="AmazonHeading">
+            <h1 id="AmazonTitle"><%= textModel.title %></h1>
+            <a href="#">Visit the Atlantic Naturals Store</a>
+            <div class="ratingDiv">
+              <div class="stars">
+                <div class="starNumber">4</div>
+                <div class="starImage">
+                  <img src="../Img/rating.png" alt="" srcset="" />
+                  <img src="../Img/down.png" alt="" srcset="" />
+                </div>
+              </div>
+              <div class="rating">
+                <a href="#">851 ratings</a>
+              </div>
+              <span>|</span>
+              <div class="searchPage">
+                <a href="#">Search this page</a>
+              </div>
+            </div>
+            <hr width="90%" />
+            <h3 id="Price"></h3>
+          </div>
+          <div class="brandDetail">
+            <div>
+              <h2>
+                This item cannot be shipped to your selected delivery location.
+                Please choose a different delivery location.
+              </h2>
+            </div>
+            <div>
+              <table>
+                <tr>
+                  <td><b>Brand</b></td>
+                  <td id="detail01"><%= textModel.brandName %></td>
+                </tr>
+                <tr>
+                  <td><b>Item Form</b></td>
+                  <td id="detail02"><%= textModel.itemForm %></td>
+                </tr>
+                <tr>
+                  <td><b>Manufacturer</b></td>
+                  <td id="detail03"><%= textModel.manufacture %></td>
+                </tr>
+                <tr>
+                  <td><b>Item Package Quantity</b></td>
+                  <td id="detail04"><%= textModel.quantity %></td>
+                </tr>
+                <tr>
+                  <td><b>Package Information</b></td>
+                  <td id="detail05"><%= textModel.PackageInfo %></td>
+                </tr>
+              </table>
+            </div>
+            <hr width="90%" />
+          </div>
+          <div id="BulletPoints">
+            <ul>
+              <h2>About this item</h2>
+              <li id="AmazonSubTitle01"><%= textModel.bulletPoint01 %></li>
+              <li id="AmazonSubTitle02"><%= textModel.bulletPoint02 %></li>
+              <li id="AmazonSubTitle03"><%= textModel.bulletPoint03 %></li>
+              <li id="AmazonSubTitle04"><%= textModel.bulletPoint04 %></li>
+              <li id="AmazonSubTitle05"><%= textModel.bulletPoint05 %></li>
+              <li id="AmazonSubTitle06"><%= textModel.bulletPoint06 %></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          id="div"
+          style="
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s;
+          "
+        >
+          <h2
+            style="
+              width: 60%;
+              font-size: 1rem;
+              padding: 1rem;
+              margin: 50px 10px 10px 10px;
+              cursor: pointer;
+              background: #000;
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            Step 2
+          </h2>
+        </div>
+      </div>
+    </main>
+    <div class="AplusImage">
+      <% textModel.APlusImgPaths.forEach((value)=> {%>
+      <img src="<%= value %>" alt="" srcset="" />
+      <% });%>
+    </div>
+
+    <div id="databaseIdPopUp">
+      <span>&times;</span>
+      <!-- <h1 style="text-align: center;">Copy below Text To Paste On Next Step <br><%= textId %></h1> -->
+      <a
+        target="_blank"
+        style="
+          width: 25%;
+          font-size: 1rem;
+          padding: 1rem;
+          margin: 50px 10px 10px 10px;
+          cursor: pointer;
+          background: #000;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+        href="http://localhost:5000/access/<%= textModel.accessLink  %>"
+        >Step 3</a
+      >
+    </div>
+
+    <script>
+      const div = document.getElementById("div");
+      const divImg = document.querySelector("#div h2");
+      const databaseIdPopUp = document.getElementById("databaseIdPopUp");
+      const databaseIdPopUpSpan = document.querySelector(
+        "#databaseIdPopUp span"
+      );
+
+      const SmallListingImage = document.querySelectorAll("#SmallListingImage");
+      const mainBigImage = document.querySelector(".mainBigImage img")
+      SmallListingImage.forEach((value)=>{
+        value.addEventListener("mouseover",()=>{
+          mainBigImage.src = value.src;
+        })
+      })
+
+      div.addEventListener("click", () => {
+        divImg.style.display = "none";
+        databaseIdPopUp.style.display = "flex";
+      });
+
+      databaseIdPopUpSpan.addEventListener("click", () => {
+        divImg.style.display = "flex";
+        databaseIdPopUp.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
