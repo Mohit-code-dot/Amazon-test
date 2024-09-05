@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const util = require("util");
+const unlinkFile = util.promisify(fs.unlink);
 const cloudinary = require("cloudinary").v2;
 const TextModel = require("./textSchema");
 const User = require("./userSchema");
