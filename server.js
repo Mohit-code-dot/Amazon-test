@@ -301,7 +301,7 @@ app.get("/access/:link", async (req, res) => {
       return res.status(404).send("No data found for the given link.");
     }
 
-    res.render("Preview", { textModel, textId: textModel._id });
+    res.render("test", { textModel, textId: textModel._id });
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred while retrieving the data.");
