@@ -246,7 +246,7 @@ app.post("/", async (req, res) => {
           throw err;
         }
       }
-    };
+    }; 
 
     try {
       // Upload main images sequentially
@@ -292,7 +292,7 @@ app.post("/", async (req, res) => {
 });
 
 // Endpoint to access data via the unique link
-app.get("/access/:link", async (req, res) => {
+app.get("/access/:link", async (req, res) => {  
   try {
     const { link } = req.params;
     const textModel = await TextModel.findOne({ accessLink: link });

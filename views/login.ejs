@@ -6,9 +6,61 @@
   <title>Login</title>
   <link rel="stylesheet" href="/path/to/your/css">
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container h2{
+    margin: 0;
+  }
+  .container form{
+    background-color: #FEFBF2;
+    padding: 2rem;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container form input{
+    padding: 1rem;
+    width: 100%;
+  }
+  .container button{
+    background-color: #F99500;
+    border: none;
+    width: 40%;
+    height: 12%;
+    border-radius: 8px;
+    color: #fff;
+  }
+  .form-group{
+    padding: 1rem 0;
+  }
+  .register-link{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+</style>
 <body>
   <div class="container">
-    <h2>Login</h2>
 
     <!-- Display flash message for incorrect username/password -->
     <% if (message) { %>
@@ -18,6 +70,7 @@
     <% } %>
 
     <form action="/login" method="POST">
+      <h2>Login</h2>
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" name="username" id="username" class="form-control" required>
@@ -28,14 +81,14 @@
         <input type="password" name="password" id="password" class="form-control" required>
       </div>
 
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit">Login</button>
+      <div class="register-link">
+        <p>Don't have an account?</p>
+        <a href="/register" class="btn btn-secondary">Register</a>
+      </div>
     </form>
 
     <!-- Register button that redirects to the registration page -->
-    <div class="register-link">
-      <p>Don't have an account?</p>
-      <a href="/register" class="btn btn-secondary">Register</a>
-    </div>
-  </div>
+  </div> 
 </body>
 </html>
