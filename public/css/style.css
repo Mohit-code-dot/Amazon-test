@@ -24,6 +24,7 @@ header {
 .subHeader ul {
   padding: 0;
   margin: 0;
+  position: relative;
 }
 .subHeader ul li {
   display: inline-block;
