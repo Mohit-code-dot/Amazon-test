@@ -316,10 +316,9 @@ app.get("/access/:link", async (req, res) => {
 
 app.get("/admin/dashboard",(req,res)=>{
   res.redirect("/admin/login");
-  // res.render("AdminPanel"); 
 })
 app.get("/admin/login",(req,res)=>{
-  res.render("adminLogin");
+  res.render("adminLogIn");
 })
 app.post("/admin/login",(req,res)=>{
   if(req.body.AdminUsername === "mohit" && req.body.AdminPassword === "12345"){
