@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <img loading="lazy" src="../images/logo.png" alt="" srcset="" />
+            <h2>Dash<span class="danger">board</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <i class="material-icons">close</i>
+          </div>
+        </div>
+        <div class="sidebar">
+          <a href="#" id="ondashboard">
+            <i class="material-icons">dashboard</i>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">person</i>
+            <h3>Customers</h3>
+          </a>
+          <a href="#" class="orr">
+            <i class="material-icons"> receipt_long </i>
+            <h3>Orders</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">insights</i>
+            <h3>Analytics</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">mail</i>
+            <h3>Messages</h3>
+            <span class="message-count">26</span>
+          </a>
+          <a href="#" class="active" id="AmazonProductTool">
+            <i class="material-icons">inventory</i>
+            <h3>Products</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">report</i>
+            <h3>Reports</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">settings</i>
+            <h3>Settings</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">add</i>
+            <h3>Add Product</h3>
+          </a>
+          <a href="/admin/login">
+            <i class="material-icons">logout</i>
+            <h3>Log Out</h3>
+          </a>
+        </div>
+      </aside>
+      <main id="adminMain">
+        <h1>Dashboard</h1>
+        <div class="date">
+          <input type="date" />
+        </div>
+        <div class="insights">
+          <div class="sales">
+            <i class="material-icons">analytics</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Sales</h3>
+                <h1>$25,024</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF SALES ---------------------- -->
+          <div class="expenses">
+            <i class="material-icons">bar_chart</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Expense</h3>
+                <h1>$14,160</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>62%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF EXPENSE ---------------------- -->
+          <div class="income">
+            <i class="material-icons">stacked_line_chart</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Income</h3>
+                <h1>$10,864</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>44%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF INCOME ---------------------- -->
+        </div>
+        <div class="recent-orders">
+          <h2>Recent Order</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Product Number</th>
+                <th>Payment</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="#">Show All</a>
+        </div>
+      </main>
+
+      <!-- Start Product code -->
+      <div class="ProductWrapper" style="margin-top: 1rem">
+        <h1>Dashboard</h1>
+        <div class="date" style="margin-bottom: 1rem">
+          <input type="date" />
+        </div>
+        <header>
+          <nav>
+            <div class="nav01">
+              <img loading="lazy" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+            </div>
+            <div class="nav02">
+              <div class="nav02img">
+                <img loading="lazy" src="../Img/location.png" alt="" srcset="" />
+              </div>
+              <div class="nav02text">
+                <span>Deliver To</span><br />
+                <span>United States</span>
+              </div>
+            </div>
+            <div class="nav03">
+              <button>
+                All
+                <img loading="lazy" src="../Img/downward-arrow.png" alt="" srcset="" />
+              </button>
+              <input type="text" placeholder="Search Amazon" />
+              <button><img loading="lazy" src="../Img/search.png" alt="" srcset="" /></button>
+            </div>
+            <div class="nav04">
+              <img loading="lazy"
+                src="../Img/Flag_of_the_United_States.png"
+                alt=""
+                srcset=""
+              />
+              EN
+            </div>
+            <div class="nav05">
+              <span>Account & Lists</span>
+            </div>
+            <div class="nav06">
+              <span
+                >Returns <br />
+                & Order</span
+              >
+            </div>
+            <div class="nav07">Cart</div>
+          </nav>
+        </header>
+        <div class="subHeader">
+          <ul>
+            <li>All</li>
+            <li>Today's Deals</li>
+            <li>Customer Service</li>
+            <li>Your Amazon.com</li>
+            <li>Buy Again</li>
+            <li>Sell</li>
+            <li>Gift Cards</li>
+            <li>Browsing History</li>
+            <li>Registry</li>
+            <li>
+              <a
+                href="/logout"
+                style="
+                  width: 100%;
+                  display: flex;
+                  justify-content: flex-end;
+                  align-items: center;
+                  position: absolute;
+                  top: 25%;
+                  right: 2%;
+                "
+                ><img loading="lazy" width="1%" src="../Img/logout.png" alt="" srcset=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+
+        <main>
+          <div class="mainImg">
+            <div class="ListingImage">
+              <img loading="lazy" src="" alt="" />
+            </div>
+            <div class="mainBigImage image-container" id="image-container">
+              <img loading="lazy" src="" alt="" />
+              <div id="mouse-overlay"></div>
+              <div id="overlay"></div>
+            </div>
+          </div>
+          <div class="mainContent" style="position: relative;padding: 10px 0 0 10px;">
+            <div class="Content">
+              <div class="AmazonHeading" style="width: 106%;">
+                <h1 id="AmazonTitle"></h1>
+                <a href="#">Visit the Atlantic Naturals Store</a>
+                <div class="ratingDiv">
+                  <div class="stars">
+                    <div class="starNumber">4</div>
+                    <div class="starImage">
+                      <img loading="lazy" src="../Img/rating.png" alt="" srcset="" />
+                      <img loading="lazy" src="../Img/down.png" alt="" srcset="" />
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <a href="#">851 ratings</a>
+                  </div>
+                  <span>|</span>
+                  <div class="searchPage">
+                    <a href="#">Search this page</a>
+                  </div>
+                </div>
+                <hr width="90%" />
+                <h3 id="Price"></h3>
+              </div>
+              <div class="brandDetail">
+                <div>
+                  <h2>
+                    This item cannot be shipped to your selected delivery
+                    location. Please choose a different delivery location.
+                  </h2>
+                </div>
+                <div>
+                  <table>
+                    <tr>
+                      <td><b>Brand</b></td>
+                      <td id="detail01"></td>
+                    </tr>
+                    <tr>
+                      <td><b>Item Form</b></td>
+                      <td id="detail02"></td>
+                    </tr>
+                    <tr>
+                      <td><b>Manufacturer</b></td>
+                      <td id="detail03"></td>
+                    </tr>
+                    <tr>
+                      <td><b>Item Package Quantity</b></td>
+                      <td id="detail04"></td>
+                    </tr>
+                    <tr>
+                      <td><b>Package Information</b></td>
+                      <td id="detail05"></td>
+                    </tr>
+                  </table>
+                </div>
+                <hr width="90%" />
+              </div>
+              <div id="BulletPoints">
+                <ul>
+                  <h2>About this item</h2>
+                  <li id="AmazonSubTitle01"></li>
+                  <li id="AmazonSubTitle02"></li>
+                  <li id="AmazonSubTitle03"></li>
+                  <li id="AmazonSubTitle04"></li>
+                  <li id="AmazonSubTitle05"></li>
+                  <li id="AmazonSubTitle06"></li>
+                </ul>
+              </div>
+            </div>
+            <div
+              style="top: 1%; right: 1%;"
+              class="sideMenu"
+              onclick="showSideMenu()"
+            >
+              <img loading="lazy" style="width: 80%" src="../Img/list.png" alt="" />
+            </div>
+            <div class="div" style="width: 40%"></div>
+            <form
+              class="dashboard"
+              method="post"
+              action="/admin/dashboard"
+              enctype="multipart/form-data"
+              style="width: 47%; right: 0%; top: 3%"
+            >
+              <span
+                style="right: 0%; top: 0%"
+                id="removeApp"
+                onclick="removeSideMenu()"
+                ><img loading="lazy" src="../Img/x-square.png" alt="" srcset=""
+              /></span>
+              <div class="dashboard01">
+                <textarea
+                  cols="30"
+                  rows="2"
+                  onchange="dashboardHeading(value)"
+                  placeholder="Title...."
+                  name="title"
+                ></textarea>
+              </div>
+              <div class="dashboard02">
+                <textarea
+                  id="input-field01"
+                  cols="30"
+                  rows="1"
+                  placeholder="1. Bullet Points...."
+                  name="bulletPoint01"
+                ></textarea>
+                <textarea
+                  id="input-field02"
+                  cols="30"
+                  rows="1"
+                  placeholder="2. Bullet Points...."
+                  name="bulletPoint02"
+                ></textarea>
+                <textarea
+                  id="input-field03"
+                  cols="30"
+                  rows="1"
+                  placeholder="3. Bullet Points...."
+                  name="bulletPoint03"
+                ></textarea>
+                <textarea
+                  id="input-field04"
+                  cols="30"
+                  rows="1"
+                  placeholder="4. Bullet Points...."
+                  name="bulletPoint04"
+                ></textarea>
+                <textarea
+                  id="input-field05"
+                  cols="30"
+                  rows="1"
+                  placeholder="5. Bullet Points...."
+                  name="bulletPoint05"
+                ></textarea>
+                <textarea
+                  id="input-field06"
+                  cols="30"
+                  rows="1"
+                  placeholder="6. Bullet Points...."
+                  name="bulletPoint06"
+                ></textarea>
+              </div>
+
+              <div class="dashboard03">
+                <div class="listingInputWrapper">
+                  <p style="color: #000;">Upload Listing Image</p>
+                  <input
+                    id="ImgUploadButton"
+                    type="file"
+                    name="file"
+                    multiple="multiple"
+                  />
+                </div>
+              </div>
+              <div class="dashboard04">
+                <textarea
+                  name="price"
+                  id="brandDetail-input0"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="1. Price...."
+                ></textarea>
+                <textarea
+                  name="brandName"
+                  id="brandDetail-input01"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="1. Brand...."
+                ></textarea>
+                <textarea
+                  name="itemForm"
+                  id="brandDetail-input02"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="2. Item Form...."
+                ></textarea>
+                <textarea
+                  name="manufacture"
+                  id="brandDetail-input03"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="3. Manufacturer...."
+                ></textarea>
+                <textarea
+                  name="quantity"
+                  id="brandDetail-input04"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="4. Item Package Quantity...."
+                ></textarea>
+                <textarea
+                  name="PackageInfo"
+                  id="brandDetail-input05"
+                  onchange="brandDetailInput(event)"
+                  cols="30"
+                  rows="1"
+                  placeholder="4. Package Information...."
+                ></textarea>
+              </div>
+              <div class="dashboard05">
+                <div class="listingInputWrapper">
+                  <p style="color: #000;">Upload A+ Image</p>
+                  <input
+                    id="ImgUploadButton"
+                    type="file"
+                    name="APlusFile"
+                    multiple="multiple"
+                  />
+                </div>
+              </div>
+              <input
+                style="
+                  width: 60%;
+                  font-size: 1rem;
+                  padding: 1rem;
+                  margin: 5px 10px 10px 10px;
+                  cursor: pointer;
+                  background: #000;
+                  color: #fff;
+                  border: none;
+                  border-radius: 8px;
+                "
+                type="submit"
+                value="Submit Content"
+              />
+            </form>
+          </div>
+        </main>
+        <div class="AplusImage"></div>
+      </div>
+      <!-- End Product code -->
+      <!-- -------------------------START OF RECENT ORDERS ---------------------- -->
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <i class="material-icons">menu</i>
+          </button>
+          <div class="theme-toggler">
+            <i class="material-icons active">light_mode</i>
+            <i class="material-icons">dark_mode</i>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Daniel</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img loading="lazy" src="../images/profile-1.jpg" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+        <div class="recent-updates">
+          <h2>Recent Trends on Amazon</h2>
+          <div class="updates">
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-2.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-3.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-4.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -------------------------END OF RECENT ORDERS ---------------------- -->
+        <div class="sales-analytics">
+          <h2>Amazon Analytics</h2>
+          <div class="item online">
+            <div class="icon">
+              <i class="material-icons">shopping_cart</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>ONLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="success">+39%</h5>
+              <h3>3849</h3>
+            </div>
+          </div>
+          <div class="item offline">
+            <div class="icon">
+              <i class="material-icons">local_mall</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>ONLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="danger">-17%</h5>
+              <h3>1100</h3>
+            </div>
+          </div>
+          <div class="item customers">
+            <div class="icon">
+              <i class="material-icons">shopping_cart</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>NEW CUSTOMERS</h3>
+
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="success">+25%</h5>
+              <h3>849</h3>
+            </div>
+          </div>
+
+          <div class="item add-product">
+            <div>
+              <i class="material-icons">add</i>
+              <h3>Add Product</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../admin.js"></script>
+    <script>
+      const dashboardHeading = (value) => {
+        const AmazonTitle = document.getElementById("AmazonTitle");
+        return (AmazonTitle.innerText = value);
+      };
+
+      const inputfield01 = document.getElementById("input-field01");
+      const inputfield02 = document.getElementById("input-field02");
+      const inputfield03 = document.getElementById("input-field03");
+      const inputfield04 = document.getElementById("input-field04");
+      const inputfield05 = document.getElementById("input-field05");
+      const inputfield06 = document.getElementById("input-field06");
+
+      inputfield01.addEventListener("change", (value) => {
+        const AmazonSubTitle01 = document.getElementById("AmazonSubTitle01");
+        AmazonSubTitle01.innerText = `•  ${value.target.value}`;
+      });
+      inputfield02.addEventListener("change", (value) => {
+        const AmazonSubTitle02 = document.getElementById("AmazonSubTitle02");
+        AmazonSubTitle02.innerText = `•  ${value.target.value}`;
+      });
+      inputfield03.addEventListener("change", (value) => {
+        const AmazonSubTitle03 = document.getElementById("AmazonSubTitle03");
+        AmazonSubTitle03.innerText = `•  ${value.target.value}`;
+      });
+      inputfield04.addEventListener("change", (value) => {
+        const AmazonSubTitle04 = document.getElementById("AmazonSubTitle04");
+        AmazonSubTitle04.innerText = `•  ${value.target.value}`;
+      });
+      inputfield05.addEventListener("change", (value) => {
+        const AmazonSubTitle05 = document.getElementById("AmazonSubTitle05");
+        AmazonSubTitle05.innerText = `•  ${value.target.value}`;
+      });
+      inputfield06.addEventListener("change", (value) => {
+        const AmazonSubTitle06 = document.getElementById("AmazonSubTitle06");
+        AmazonSubTitle06.innerText = `•  ${value.target.value}`;
+      });
+
+      function brandDetailInput(event) {
+        const Price = document.getElementById("Price");
+        const detail01 = document.getElementById("detail01");
+        const detail02 = document.getElementById("detail02");
+        const detail03 = document.getElementById("detail03");
+        const detail04 = document.getElementById("detail04");
+        const detail05 = document.getElementById("detail05");
+
+        if (event.target.id === "brandDetail-input0") {
+          const brandDetail =
+            document.getElementById("brandDetail-input0").value;
+          Price.innerText = brandDetail;
+        }
+        if (event.target.id === "brandDetail-input01") {
+          const brandDetail = document.getElementById(
+            "brandDetail-input01"
+          ).value;
+          detail01.innerText = brandDetail;
+        }
+        if (event.target.id === "brandDetail-input02") {
+          const brandDetail = document.getElementById(
+            "brandDetail-input02"
+          ).value;
+          detail02.innerText = brandDetail;
+        }
+        if (event.target.id === "brandDetail-input03") {
+          const brandDetail = document.getElementById(
+            "brandDetail-input03"
+          ).value;
+          detail03.innerText = brandDetail;
+        }
+        if (event.target.id === "brandDetail-input04") {
+          const brandDetail = document.getElementById(
+            "brandDetail-input04"
+          ).value;
+          detail04.innerText = brandDetail;
+        }
+        if (event.target.id === "brandDetail-input05") {
+          const brandDetail = document.getElementById(
+            "brandDetail-input05"
+          ).value;
+          detail05.innerText = brandDetail;
+        }
+      }
+
+      const cross = document.querySelector("#cross");
+      cross.addEventListener("click", () => {
+        const app = document.querySelector(".app");
+        app.style.display = "none";
+      });
+
+      function uploadImage() {
+        const app = document.querySelector(".app");
+        app.style.display = "flex";
+      }
+
+      function removeSideMenu() {
+        const dashboard = document.querySelector(".dashboard");
+        const sideMenu = document.querySelector(".sideMenu");
+        dashboard.style.transition = "all .5s";
+        dashboard.style.width = "0";
+        dashboard.style.right = "-100%";
+        sideMenu.style.display = "flex";
+      }
+
+      function showSideMenu() {
+        const dashboard = document.querySelector(".dashboard");
+        const sideMenu = document.querySelector(".sideMenu");
+        dashboard.style.transition = "all .5s";
+        dashboard.style.width = "45%";
+        dashboard.style.right = "0%";
+        sideMenu.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

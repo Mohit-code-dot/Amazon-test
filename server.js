@@ -15,8 +15,17 @@ const upload = require("express-fileupload");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const bcrypt = require("bcryptjs");
 const flash = require('connect-flash');
+const compression = require('compression');
+app.use(compression({
+  level:6,
+  threshold: 0,
+  filter:(req,res)=>{
+    if (req.headers['x-no-compression']) {
+      return false
+    }
+    return compression.filter(req, res)
+}}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -219,41 +228,37 @@ app.post("/", async (req, res) => {
     files.sort((a, b) => a.name.localeCompare(b.name));
     files2.sort((a, b) => a.name.localeCompare(b.name));
 
-    // Function to upload images sequentially
-    const uploadSequentially = async (filesArray, imgPathsArray, prefix) => {
-      for (let i = 0; i < filesArray.length; i++) {
-        const file = filesArray[i];
+    const uploadInParallel = async (filesArray, imgPathsArray, prefix) => {
+      const uploadPromises = filesArray.map((file, i) => {
         const newPublicId = `${prefix}_${i + 1}_${Date.now()}`;
-        try {
-          const result = await new Promise((resolve, reject) => {
-            cloudinary.uploader
-              .upload_stream(
-                {
-                  public_id: newPublicId, // Set the public ID to the new name
-                },
-                (error, result) => {
-                  if (error) {
-                    reject(error);
-                  } else {
-                    resolve(result);
-                  }
-                }
-              )
-              .end(file.data); // Pass the file buffer to the upload stream
-          });
-          imgPathsArray.push(result.secure_url); // Push the secure URL to imgPaths array
-        } catch (err) {
-          throw err;
-        }
-      }
-    }; 
+        return new Promise((resolve, reject) => {
+          cloudinary.uploader.upload_stream(
+            {
+              public_id: newPublicId,
+            },
+            (error, result) => {
+              if (error) {
+                reject(error);
+              } else {
+                resolve(result.secure_url);
+              }
+            }
+          ).end(file.data);
+        });
+      });
+      const uploadedUrls = await Promise.all(uploadPromises);
+      imgPathsArray.push(...uploadedUrls);
+    };
+    
+    
+    
 
     try {
-      // Upload main images sequentially
-      await uploadSequentially(files, imgPaths, "img");
+      // Upload main images sequentially with compression and resizing
+      await uploadInParallel(files, imgPaths, "img");
 
-      // Upload APlus images sequentially
-      await uploadSequentially(files2, APlusImgPaths, "aplus");
+      // Upload APlus images sequentially with compression and resizing
+      await uploadInParallel(files2, APlusImgPaths, "aplus");
 
       // Generate a unique access link
       const accessLink = uuidv4();
@@ -291,6 +296,7 @@ app.post("/", async (req, res) => {
   }
 });
 
+
 // Endpoint to access data via the unique link
 app.get("/access/:link", async (req, res) => {  
   try {
@@ -307,6 +313,145 @@ app.get("/access/:link", async (req, res) => {
     res.status(500).send("An error occurred while retrieving the data.");
   }
 });
+
+app.get("/admin/dashboard",(req,res)=>{
+  res.redirect("/admin/login");
+  // res.render("AdminPanel"); 
+})
+app.get("/admin/login",(req,res)=>{
+  res.render("adminLogin");
+})
+app.post("/admin/login",(req,res)=>{
+  if(req.body.AdminUsername === "mohit" && req.body.AdminPassword === "12345"){
+    res.render("AdminPanel");
+  }
+})
+
+app.post("/admin/dashboard",async(req,res)=>{
+  // Extracting fields from the request body
+  const {
+    title,
+    bulletPoint01,
+    bulletPoint02,
+    bulletPoint03,
+    bulletPoint04,
+    bulletPoint05,
+    bulletPoint06,
+    price,
+    brandName,
+    itemForm,
+    manufacture,
+    quantity,
+    PackageInfo,
+  } = req.body;
+
+  // Initialize arrays to store the secure URLs of uploaded images
+  const imgPaths = [];
+  const APlusImgPaths = [];
+
+  if (req.files) {
+    // Handle single or multiple files for main images
+    let files = Array.isArray(req.files.file)
+      ? req.files.file
+      : [req.files.file];
+
+    // Handle single or multiple files for APlus images
+    let files2 = Array.isArray(req.files.APlusFile)
+      ? req.files.APlusFile
+      : [req.files.APlusFile];
+
+    // Sort the files by their filenames in ascending order
+    files.sort((a, b) => a.name.localeCompare(b.name));
+    files2.sort((a, b) => a.name.localeCompare(b.name));
+
+    const uploadInParallel = async (filesArray, imgPathsArray, prefix) => {
+      const uploadPromises = filesArray.map((file, i) => {
+        const newPublicId = `${prefix}_${i + 1}_${Date.now()}`;
+        return new Promise((resolve, reject) => {
+          cloudinary.uploader.upload_stream(
+            {
+              public_id: newPublicId
+            },
+            (error, result) => {
+              if (error) {
+                reject(error);
+              } else {
+                resolve(result.secure_url);
+              }
+            }
+          ).end(file.data);
+        });
+      });
+      const uploadedUrls = await Promise.all(uploadPromises);
+      imgPathsArray.push(...uploadedUrls);
+    };
+    
+    
+    
+
+    try {
+      // Upload main images sequentially with compression and resizing
+      await uploadInParallel(files, imgPaths, "img");
+
+      // Upload APlus images sequentially with compression and resizing
+      await uploadInParallel(files2, APlusImgPaths, "aplus");
+
+      // Generate a unique access link
+      const accessLink = uuidv4();
+
+      // Save the document with image URLs and the access link to the database
+      const textModel = new TextModel({
+        title,
+        bulletPoint01,
+        bulletPoint02,
+        bulletPoint03,
+        bulletPoint04,
+        bulletPoint05,
+        bulletPoint06,
+        price,
+        brandName,
+        itemForm,
+        manufacture,
+        quantity,
+        PackageInfo,
+        imgPaths, // Save imgPaths array
+        APlusImgPaths, // Save APlusImgPaths array
+        accessLink, // Save the unique access link
+      });
+
+      await textModel.save(); // Save the document to the database
+
+      // Respond with the access link
+      res.render("Preview", { textModel, textId: textModel._id, accessLink });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("An error occurred while uploading the files.");
+    }
+  } else {
+    res.status(400).send("No files uploaded.");
+  }
+});
+
+
+// Endpoint to access data via the unique link
+app.get("/access/:link", async (req, res) => {  
+  try {
+    const { link } = req.params;
+    const textModel = await TextModel.findOne({ accessLink: link });
+
+    if (!textModel) {
+      return res.status(404).send("No data found for the given link.");
+    }
+
+    res.render("dashboardPreview", { textModel, textId: textModel._id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("An error occurred while retrieving the data.");
+  }
+  // res.render("dashboardPreview");
+})
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

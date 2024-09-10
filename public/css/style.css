@@ -30,6 +30,7 @@ header {
   display: inline-block;
   margin: 0 10px;
   padding: 10px;
+  position: relative;
 }
 nav {
   width: 100%;
@@ -241,6 +242,7 @@ main {
 #BulletPoints ul h2 {
   font-size: 20px;
   margin: 1rem 0;
+  color:#000;
 }
 #BulletPoints ul li {
   list-style: none;
@@ -254,6 +256,7 @@ main {
 .AmazonHeading h1 {
   overflow-wrap: anywhere;
   font-weight: 300;
+  color: #000;
 }
 
 #ImgUploadButton {
@@ -500,6 +503,9 @@ main {
 .brandDetail td {
   width: 140px;
   padding: 5px;
+}
+.brandDetail td b{
+  color: #000;
 }
 .AplusImage img {
   width: 100%;

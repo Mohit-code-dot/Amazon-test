@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <img loading="lazy" src="../images/logo.png" alt="" srcset="" />
+            <h2>Dash<span class="danger">board</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <i class="material-icons">close</i>
+          </div>
+        </div>
+        <div class="sidebar">
+          <a href="#" id="ondashboard">
+            <i class="material-icons">dashboard</i>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">person</i>
+            <h3>Customers</h3>
+          </a>
+          <a href="#" class="orr">
+            <i class="material-icons"> receipt_long </i>
+            <h3>Orders</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">insights</i>
+            <h3>Analytics</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">mail</i>
+            <h3>Messages</h3>
+            <span class="message-count">26</span>
+          </a>
+          <a href="#" class="active" id="AmazonProductTool">
+            <i class="material-icons">inventory</i>
+            <h3>Products</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">report</i>
+            <h3>Reports</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">settings</i>
+            <h3>Settings</h3>
+          </a>
+          <a href="#">
+            <i class="material-icons">add</i>
+            <h3>Add Product</h3>
+          </a>
+          <a href="/admin/login">
+            <i class="material-icons">logout</i>
+            <h3>Log Out</h3>
+          </a>
+        </div>
+      </aside>
+      <main id="adminMain">
+        <h1>Dashboard</h1>
+        <div class="date">
+          <input type="date" />
+        </div>
+        <div class="insights">
+          <div class="sales">
+            <i class="material-icons">analytics</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Sales</h3>
+                <h1>$25,024</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF SALES ---------------------- -->
+          <div class="expenses">
+            <i class="material-icons">bar_chart</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Expense</h3>
+                <h1>$14,160</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>62%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF EXPENSE ---------------------- -->
+          <div class="income">
+            <i class="material-icons">stacked_line_chart</i>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Income</h3>
+                <h1>$10,864</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>44%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-- -------------------------END OF INCOME ---------------------- -->
+        </div>
+        <div class="recent-orders">
+          <h2>Recent Order</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Product Number</th>
+                <th>Payment</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+              <tr>
+                <td>foldable mini drone</td>
+                <td>98849</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="#">Show All</a>
+        </div>
+      </main>
+
+      <!-- Start Product code -->
+      <div class="ProductWrapper" style="margin-top: 1rem">
+        <h1>Dashboard</h1>
+        <div class="date" style="margin-bottom: 1rem">
+          <input type="date" />
+        </div>
+        <header>
+          <nav>
+            <div class="nav01">
+              <img loading="lazy" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+            </div>
+            <div class="nav02">
+              <div class="nav02img">
+                <img loading="lazy" src="../Img/location.png" alt="" srcset="" />
+              </div>
+              <div class="nav02text">
+                <span>Deliver To</span><br />
+                <span>India</span>
+              </div>
+            </div>
+            <div class="nav03">
+              <button>
+                All
+                <img loading="lazy" src="../Img/downward-arrow.png" alt="" srcset="" />
+              </button>
+              <input type="text" placeholder="Search Amazon" />
+              <button><img loading="lazy" src="../Img/search.png" alt="" srcset="" /></button>
+            </div>
+            <div class="nav04">
+              <img loading="lazy"
+                src="../Img/Flag_of_the_United_States.png"
+                alt=""
+                srcset=""
+              />
+              EN
+            </div>
+            <div class="nav05">
+              <span>Account & Lists</span>
+            </div>
+            <div class="nav06">
+              <span
+                >Returns <br />
+                & Order</span
+              >
+            </div>
+            <div class="nav07">Cart</div>
+          </nav>
+        </header>
+        <div class="subHeader">
+          <ul>
+            <li>All</li>
+            <li>Today's Deals</li>
+            <li>Customer Service</li>
+            <li>Dhruv's Amazon.com</li>
+            <li>Buy Again</li>
+            <li>Sell</li>
+            <li>Gift Cards</li>
+            <li>Browsing History</li>
+            <li>Registry</li>
+          </ul>
+        </div>
+
+        <main style="height: 70vh">
+          <div class="mainImg">
+            <div class="ListingImage">
+              <% textModel.imgPaths.forEach((value)=> {%>
+              <img loading="lazy" id="SmallListingImage" src="<%= value %>" alt="" srcset="" />
+              <% });%>
+            </div>
+            <div class="mainBigImage image-container" style="height: 100%;" id="image-container">
+              <img loading="lazy" style="width: 95%;
+              height: 100%;
+              object-fit: cover;" src="<%= textModel.imgPaths[0] %>" alt="" srcset="" />
+              <div id="mouse-overlay"></div>
+              <div id="overlay"></div>
+            </div>
+          </div>
+          <div class="mainContent">
+            <div class="Content">
+              <div class="AmazonHeading" style="width: 110%;">
+                <h1 id="AmazonTitle"><%= textModel.title %></h1>
+                <a href="#">Visit the Atlantic Naturals Store</a>
+                <div class="ratingDiv">
+                  <div class="stars">
+                    <div class="starNumber">4</div>
+                    <div class="starImage">
+                      <img loading="lazy" src="../Img/rating.png" alt="" srcset="" />
+                      <img loading="lazy" src="../Img/down.png" alt="" srcset="" />
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <a href="#">851 ratings</a>
+                  </div>
+                  <span>|</span>
+                  <div class="searchPage">
+                    <a href="#">Search this page</a>
+                  </div>
+                </div>
+                <hr width="90%" />
+                <h3 id="Price"></h3>
+              </div>
+              <div class="brandDetail">
+                <div>
+                  <h2>
+                    This item cannot be shipped to your selected delivery
+                    location. Please choose a different delivery location.
+                  </h2>
+                </div>
+                <div>
+                  <table>
+                    <tr>
+                      <td><b>Brand</b></td>
+                      <td id="detail01"><%= textModel.brandName %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Item Form</b></td>
+                      <td id="detail02"><%= textModel.itemForm %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Manufacturer</b></td>
+                      <td id="detail03"><%= textModel.manufacture %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Item Package Quantity</b></td>
+                      <td id="detail04"><%= textModel.quantity %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Package Information</b></td>
+                      <td id="detail05"><%= textModel.PackageInfo %></td>
+                    </tr>
+                  </table>
+                </div>
+                <hr width="90%" />
+              </div>
+              <div id="BulletPoints">
+                <ul>
+                  <h2>About this item</h2>
+                  <li id="AmazonSubTitle01"><%= textModel.bulletPoint01 %></li>
+                  <li id="AmazonSubTitle02"><%= textModel.bulletPoint02 %></li>
+                  <li id="AmazonSubTitle03"><%= textModel.bulletPoint03 %></li>
+                  <li id="AmazonSubTitle04"><%= textModel.bulletPoint04 %></li>
+                  <li id="AmazonSubTitle05"><%= textModel.bulletPoint05 %></li>
+                  <li id="AmazonSubTitle06"><%= textModel.bulletPoint06 %></li>
+                </ul>
+              </div>
+            </div>
+            <div
+              id="div"
+              style="
+                width: 40%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                cursor: pointer;
+                transition: all 0.5s;
+              "
+            >
+              <h2
+                style="
+                  width: 75%;
+                  font-size: 1rem;
+                  padding: 1rem;
+                  margin: 50px 10px 10px 10px;
+                  cursor: pointer;
+                  background: #000;
+                  color: #fff;
+                  border: none;
+                  border-radius: 8px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                Generate Preview Link
+              </h2>
+            </div>
+          </div>
+        </main>
+        <div>
+          <div class="AplusImage">
+            <% textModel.APlusImgPaths.forEach((value)=> {%>
+            <img loading="lazy" src="<%= value %>" alt="" srcset="" />
+            <% });%>
+          </div>
+        </div>
+
+        <div id="databaseIdPopUp" style="width: 40%; height: 40%">
+          <span>&times;</span>
+          <h1 style="text-align: center; padding-bottom: 3rem">
+            https://chronic-mehetabel-workinxdigtial-b3860ccc.koyeb.app/access/<%=
+            textModel.accessLink %>
+          </h1>
+          <sl-copy-button value="Copied from a custom button">
+            <sl-icon slot="copy-icon" name="clipboard"></sl-icon>
+            <sl-icon slot="success-icon" name="clipboard-check"></sl-icon>
+            <sl-icon slot="error-icon" name="clipboard-x"></sl-icon>
+          </sl-copy-button>
+        </div>
+      </div>
+      <!-- End Product code -->
+      <!-- -------------------------START OF RECENT ORDERS ---------------------- -->
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <i class="material-icons">menu</i>
+          </button>
+          <div class="theme-toggler">
+            <i class="material-icons active">light_mode</i>
+            <i class="material-icons">dark_mode</i>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Daniel</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img loading="lazy" src="../images/profile-1.jpg" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+        <div class="recent-updates">
+          <h2>Recent Trends on Amazon</h2>
+          <div class="updates">
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-2.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-3.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img loading="lazy" src="../images/profile-4.jpg" alt="" srcset="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Mike tyson</b> Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Sit, cum!
+                </p>
+                <small class="text-muted">2 Minutes Ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -------------------------END OF RECENT ORDERS ---------------------- -->
+        <div class="sales-analytics">
+          <h2>Amazon Analytics</h2>
+          <div class="item online">
+            <div class="icon">
+              <i class="material-icons">shopping_cart</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>ONLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="success">+39%</h5>
+              <h3>3849</h3>
+            </div>
+          </div>
+          <div class="item offline">
+            <div class="icon">
+              <i class="material-icons">local_mall</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>ONLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="danger">-17%</h5>
+              <h3>1100</h3>
+            </div>
+          </div>
+          <div class="item customers">
+            <div class="icon">
+              <i class="material-icons">shopping_cart</i>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>NEW CUSTOMERS</h3>
+
+                <small class="text-muted">Last 24 Hours</small>
+              </div>
+              <h5 class="success">+25%</h5>
+              <h3>849</h3>
+            </div>
+          </div>
+
+          <div class="item add-product">
+            <div>
+              <i class="material-icons">add</i>
+              <h3>Add Product</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../admin.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/shoelace.js"
+    ></script>
+    <script>
+      const div = document.getElementById("div");
+      const divImg = document.querySelector("#div h2");
+      const databaseIdPopUp = document.getElementById("databaseIdPopUp");
+      const databaseIdPopUpH1 = document.querySelector("#databaseIdPopUp h1");
+      const databaseIdPopUpButton = document.querySelector("sl-copy-button");
+      const databaseIdPopUpSpan = document.querySelector(
+        "#databaseIdPopUp span"
+      );
+
+      databaseIdPopUpButton.addEventListener("click", () => {
+        navigator.clipboard.writeText(databaseIdPopUpH1.textContent);
+      });
+
+      const SmallListingImage = document.querySelectorAll("#SmallListingImage");
+      const mainBigImage = document.querySelector(".mainBigImage img");
+      SmallListingImage.forEach((value) => {
+        value.addEventListener("mouseover", () => {
+          mainBigImage.src = value.src;
+        });
+      });
+
+      div.addEventListener("click", () => {
+        divImg.style.display = "none";
+        databaseIdPopUp.style.display = "flex";
+      });
+
+      databaseIdPopUpSpan.addEventListener("click", () => {
+        divImg.style.display = "flex";
+        databaseIdPopUp.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

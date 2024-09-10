@@ -85,7 +85,7 @@ function removeSideMenu(){
   const sideMenu = document.querySelector(".sideMenu");
   dashboard.style.transition = "all .5s";
   dashboard.style.width = "0"
-  dashboard.style.right = "-20%"
+  dashboard.style.right = "-100%"
   sideMenu.style.display = "flex"
 }
 
