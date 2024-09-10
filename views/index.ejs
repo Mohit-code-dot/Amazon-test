@@ -10,7 +10,10 @@
     <header>
       <nav>
         <div class="nav01">
-          <img loading="lazy" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+          <img
+            loading="lazy"
+            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          />
         </div>
         <div class="nav02">
           <div class="nav02img">
@@ -24,13 +27,25 @@
         <div class="nav03">
           <button>
             All
-            <img loading="lazy" src="../Img/downward-arrow.png" alt="" srcset="" />
+            <img
+              loading="lazy"
+              src="../Img/downward-arrow.png"
+              alt=""
+              srcset=""
+            />
           </button>
           <input type="text" placeholder="Search Amazon" />
-          <button><img loading="lazy" src="../Img/search.png" alt="" srcset="" /></button>
+          <button>
+            <img loading="lazy" src="../Img/search.png" alt="" srcset="" />
+          </button>
         </div>
         <div class="nav04">
-          <img loading="lazy" src="../Img/Flag_of_the_United_States.png" alt="" srcset="" />
+          <img
+            loading="lazy"
+            src="../Img/Flag_of_the_United_States.png"
+            alt=""
+            srcset=""
+          />
           EN
         </div>
         <div class="nav05">
@@ -45,7 +60,7 @@
         <div class="nav07">Cart</div>
       </nav>
     </header>
-    <div class="subHeader">
+    <div class="subHeader" style="position: relative;">
       <ul>
         <li>All</li>
         <li>Today's Deals</li>
@@ -56,7 +71,7 @@
         <li>Gift Cards</li>
         <li>Browsing History</li>
         <li>Registry</li>
-        <li>
+        <li style="position: absolute;right: 0;top: 0%;">
           <a
             href="/logout"
             style="
@@ -64,12 +79,17 @@
               display: flex;
               justify-content: flex-end;
               align-items: center;
-              position: absolute;
-              top: 25%;
-              right: 2%;
             "
-            ><img loading="lazy" width="1%" src="../Img/logout.png" alt="" srcset=""
+            ><img
+              loading="lazy"
+              width="5%"
+              src="../Img/logout.png"
+              alt=""
+              srcset=""
           /></a>
+        </li>
+        <li style="position: absolute;right: 5%;cursor: pointer;" onclick="showSideMenu()">
+          Upload Content
         </li>
       </ul>
     </div>
@@ -86,7 +106,7 @@
         </div>
       </div>
       <div class="mainContent">
-        <div class="Content">
+        <div class="Content" style="overflow-x: hidden;">
           <div class="AmazonHeading">
             <h1 id="AmazonTitle"></h1>
             <a href="#">Visit the Atlantic Naturals Store</a>
@@ -94,7 +114,13 @@
               <div class="stars">
                 <div class="starNumber">4</div>
                 <div class="starImage">
-                  <img loading="lazy" loading="lazy" src="../Img/rating.png" alt="" srcset="" />
+                  <img
+                    loading="lazy"
+                    loading="lazy"
+                    src="../Img/rating.png"
+                    alt=""
+                    srcset=""
+                  />
                   <img loading="lazy" src="../Img/down.png" alt="" srcset="" />
                 </div>
               </div>
@@ -154,9 +180,9 @@
             </ul>
           </div>
         </div>
-        <div class="sideMenu" onclick="showSideMenu()">
+        <!-- <div class="sideMenu" onclick="showSideMenu()">
           <img loading="lazy" src="../Img/list.png" alt="" />
-        </div>
+        </div> -->
         <div class="div" style="width: 40%"></div>
         <form
           class="dashboard"
@@ -168,15 +194,17 @@
             ><img loading="lazy" src="../Img/x-square.png" alt="" srcset=""
           /></span>
           <div class="dashboard01">
+            <h2>Title</h2>
             <textarea
-              cols="30"
-              rows="2"
+              cols="66"
+              rows="1"
               onchange="dashboardHeading(value)"
               placeholder="Title...."
               name="title"
             ></textarea>
           </div>
           <div class="dashboard02">
+            <h2>Product Description</h2>
             <textarea
               id="input-field01"
               cols="30"
@@ -220,19 +248,8 @@
               name="bulletPoint06"
             ></textarea>
           </div>
-
-          <div class="dashboard03">
-            <div class="listingInputWrapper">
-              <p>Upload Listing Image</p>
-              <input
-                id="ImgUploadButton"
-                type="file"
-                name="file"
-                multiple="multiple"
-              />
-            </div>
-          </div>
           <div class="dashboard04">
+            <h2>Brand Information</h2>
             <textarea
               name="price"
               id="brandDetail-input0"
@@ -282,23 +299,42 @@
               placeholder="4. Package Information...."
             ></textarea>
           </div>
-          <div class="dashboard05">
-            <div class="listingInputWrapper">
-              <p>Upload A+ Image</p>
-              <input
-                id="ImgUploadButton"
-                type="file"
-                name="APlusFile"
-                multiple="multiple"
-              />
+          <div class="dashboard03">
+            <h2 style="text-align: left;">Images</h2>
+            <div
+              style="
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div class="listingInputWrapper">
+                <p>Upload Listing Image</p>
+                <input
+                  id="ImgUploadButton"
+                  type="file"
+                  name="file"
+                  multiple="multiple"
+                />
+              </div>
+              <div class="listingInputWrapper">
+                <p>Upload A+ Image</p>
+                <input
+                  id="ImgUploadButton"
+                  type="file"
+                  name="APlusFile"
+                  multiple="multiple"
+                />
+              </div>
             </div>
           </div>
           <input
             style="
-              width: 60%;
+              width: 75%;
               font-size: 1rem;
               padding: 1rem;
-              margin: 50px 10px 10px 10px;
+              margin: 30px 10px 13px 10px;
               cursor: pointer;
               background: #000;
               color: #fff;

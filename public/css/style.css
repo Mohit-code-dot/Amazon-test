@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
@@ -172,7 +172,6 @@ main {
 }
 .dashboard {
   width: 0px;
-  padding: 2rem 0;
   margin-top: -2rem;
   display: flex;
   justify-content: center;
@@ -183,14 +182,15 @@ main {
   position: absolute;
   overflow: hidden;
   right: -50%;
+  height: 89%;
   font-family: "Poppins", sans-serif;
 }
 .dashboard label {
   color: #fff;
 }
 .dashboard textarea {
-  margin: 0 0 1rem 0;
-  padding: 1rem;
+  margin: 0 1rem 10px 0;
+  padding: 10px;
   border-radius: 8px;
   border: none;
   background-color: #fefbf2;
@@ -200,24 +200,30 @@ main {
   color: #000;
   font-family: "Poppins", sans-serif;
 }
+.dashboard h2 {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 1.5rem;
+  color: #fff;
+}
+.dashboard03 {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .dashboard01 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  width: 75%;
 }
 .dashboard02 {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  width: 75%;
 }
 .dashboard04 {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-top: 10px;
+  width: 75%;
 }
 .sideMenu {
   width: 5%;
@@ -242,7 +248,7 @@ main {
 #BulletPoints ul h2 {
   font-size: 20px;
   margin: 1rem 0;
-  color:#000;
+  color: #000;
 }
 #BulletPoints ul li {
   list-style: none;
@@ -269,7 +275,7 @@ main {
   left: 0;
 }
 .listingInputWrapper {
-  width: 93%;
+  width: 48%;
   padding: 1rem;
   background: #f99500;
   position: relative;
@@ -393,21 +399,6 @@ main {
   width: 100%;
   height: 100%;
 }
-
-.dashboard03 {
-  width: 68%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.dashboard05 {
-  width: 68%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 .ListingImage img {
   width: 100%;
 }
@@ -504,7 +495,7 @@ main {
   width: 140px;
   padding: 5px;
 }
-.brandDetail td b{
+.brandDetail td b {
   color: #000;
 }
 .AplusImage img {
@@ -516,7 +507,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FEFBF2;
+  background-color: #fefbf2;
   width: 50%;
   height: 50%;
   display: none;
@@ -530,7 +521,7 @@ main {
   top: 3%;
   right: 3%;
   cursor: pointer;
-  background: #F99500;
+  background: #f99500;
   width: 40px;
   height: 40px;
   display: flex;

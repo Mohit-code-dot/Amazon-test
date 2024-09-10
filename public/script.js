@@ -93,7 +93,7 @@ function showSideMenu(){
   const dashboard = document.querySelector(".dashboard");
   const sideMenu = document.querySelector(".sideMenu");
   dashboard.style.transition = "all .5s";
-  dashboard.style.width = "20%"
+  dashboard.style.width = "38%"
   dashboard.style.right = "0%"
   sideMenu.style.display = "none"
 }
