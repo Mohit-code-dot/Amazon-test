@@ -60,7 +60,7 @@
         <div class="nav07">Cart</div>
       </nav>
     </header>
-    <div class="subHeader" style="position: relative;">
+    <div class="subHeader" style="position: relative">
       <ul>
         <li>All</li>
         <li>Today's Deals</li>
@@ -71,7 +71,7 @@
         <li>Gift Cards</li>
         <li>Browsing History</li>
         <li>Registry</li>
-        <li style="position: absolute;right: 0;top: 0%;">
+        <li style="position: absolute; right: 0; top: 0%">
           <a
             href="/logout"
             style="
@@ -88,7 +88,10 @@
               srcset=""
           /></a>
         </li>
-        <li style="position: absolute;right: 5%;cursor: pointer;" onclick="showSideMenu()">
+        <li
+          style="position: absolute; right: 5%; cursor: pointer"
+          onclick="showSideMenu()"
+        >
           Upload Content
         </li>
       </ul>
@@ -106,7 +109,7 @@
         </div>
       </div>
       <div class="mainContent">
-        <div class="Content" style="overflow-x: hidden;">
+        <div class="Content" style="overflow-x: hidden">
           <div class="AmazonHeading">
             <h1 id="AmazonTitle"></h1>
             <a href="#">Visit the Atlantic Naturals Store</a>
@@ -300,7 +303,7 @@
             ></textarea>
           </div>
           <div class="dashboard03">
-            <h2 style="text-align: left;">Images</h2>
+            <h2 style="text-align: left">Images</h2>
             <div
               style="
                 width: 100%;
@@ -348,16 +351,6 @@
       </div>
     </main>
     <div class="AplusImage"></div>
-<script>
-      function showSideMenu() {
-        const dashboard = document.querySelector(".dashboard");
-        const sideMenu = document.querySelector(".sideMenu");
-        dashboard.style.transition = "all .5s";
-        dashboard.style.width = "39%";
-        dashboard.style.right = "0%";
-        sideMenu.style.display = "none";
-      }
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
