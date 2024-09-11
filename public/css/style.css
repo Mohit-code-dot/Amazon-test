@@ -72,7 +72,7 @@ nav {
   font-size: 14px;
 }
 .nav02text span:nth-child(3) {
-  font-size: 17px;
+  font-size: 14px;
   line-height: 15px;
   font-weight: 700;
   color: #fff;
@@ -182,7 +182,6 @@ main {
   position: absolute;
   overflow: hidden;
   right: -50%;
-  height: 89%;
   font-family: "Poppins", sans-serif;
 }
 .dashboard label {
@@ -195,6 +194,7 @@ main {
   border: none;
   background-color: #fefbf2;
   overflow: hidden;
+  width: 45%;
 }
 .dashboard textarea::placeholder {
   color: #000;
@@ -218,6 +218,9 @@ main {
   align-items: flex-start;
   flex-direction: column;
   width: 75%;
+}
+.dashboard01 textarea {
+  width: 100%;
 }
 .dashboard02 {
   width: 75%;
@@ -284,104 +287,6 @@ main {
   text-align: center;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  padding-bottom: 10px;
-}
-
-.header h2 {
-  min-width: fit-content;
-}
-
-.server-message {
-  width: 100%;
-  padding: 16px;
-  border-radius: 5px;
-}
-
-.input-div {
-  width: 100%;
-  height: 200px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 2px dotted black;
-  background-color: white;
-  position: relative;
-}
-
-.input-div .browse {
-  color: black;
-  font-weight: bold;
-}
-
-.file {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.saved-div,
-.queued-div {
-  min-height: 150px;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 15px;
-  position: relative;
-  border-radius: 5px;
-  border: 2px dotted black;
-  background-color: white;
-}
-
-.saved-div .image,
-.queued-div .image {
-  height: 150px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  position: relative;
-}
-
-.saved-div .image:nth-child(4n),
-.queued-div .image:nth-child(4n) {
-  margin-right: 0;
-}
-
-.saved-div .image img,
-.queued-div .image img {
-  height: 100%;
-  width: 100%;
-}
-
-.saved-div .image span,
-.queued-div .image span {
-  position: absolute;
-  top: -4px;
-  right: 4px;
-  cursor: pointer;
-  font-size: 22px;
-  color: white;
-}
-
-.saved-div .image span:hover,
-.queued-div .image span:hover {
-  opacity: 0.8;
-}
-
-.saved-div .span--hidden,
-.queued-div .span--hidden {
-  visibility: hidden;
-}
 #removeApp {
   text-align: right;
   font-size: 2rem;
@@ -415,37 +320,10 @@ main {
 .mainBigImage img {
   width: 95%;
 }
-.smallImage {
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
-  margin: 1rem 0;
-}
-#overlay {
-  display: none;
-  position: absolute;
-  top: 10%;
-  right: -80%;
-  width: 80%;
-  height: 80%;
-  border: 2px solid #555;
-  z-index: 9999;
-  background-repeat: no-repeat;
-}
-#mouse-overlay {
-  display: none;
-  cursor: zoom-in;
-  position: absolute;
-  width: 8em;
-  height: 8em;
-  transform: translate(-50%, -50%);
-  background-color: rgba(245, 245, 245, 0.6);
-}
 .AmazonHeading a {
   color: #007185;
   text-decoration: none;
+  font-size: 13px;
 }
 
 .AmazonHeading a:hover {
@@ -530,4 +408,44 @@ main {
   border-radius: 20px;
   font-size: 2rem;
   color: #fff;
+}
+
+/* ============================== MEDIA QUERIES ======================================= */
+
+@media (max-width: 1400px) {
+  .subHeader img {
+    width: 4%;
+  }
+  .subHeader ul li {
+    font-size: 12px;
+  }
+  nav {
+    font-size: 13px;
+  }
+  .nav02text span:nth-child(1) {
+    font-size: 12px;
+  }
+  .nav02text span:nth-child(3) {
+    font-size: 11px;
+  }
+  .dashboard01 {
+    width: 90%;
+  }
+  .dashboard01 textarea {
+    width: 100%;
+  }
+  .dashboard02 {
+    width: 100%;
+    margin-left: 3rem;
+  }
+  .dashboard03 {
+    width: 90%;
+  }
+  .dashboard04 {
+    width: 100%;
+    margin-left: 3rem;
+  }
+  .ratingDiv {
+    width: 100%;
+}
 }
