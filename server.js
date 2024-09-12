@@ -165,7 +165,7 @@ const uploadFiles = async (filesArray, prefix) => {
 };
 
 // Handling image and text submission
-app.post("/", async (req, res) => {
+app.post("/", ensureAuthenticated, async (req, res) => {
   const {
     title,
     bulletPoint01,
@@ -213,12 +213,14 @@ app.post("/", async (req, res) => {
       price,
       brandName,
       itemForm,
-      manufacture,
+      manufacture, 
       quantity,
       PackageInfo,
       imgPaths,
       APlusImgPaths,
       accessLink,
+      username: req.user.username,  // Store the username of the current user
+      date: Date.now(),  // This will be automatically set by the schema
     });
 
     await textModel.save();
@@ -229,6 +231,15 @@ app.post("/", async (req, res) => {
     res.status(500).send("Error occurred during upload.");
   }
 });
+
+
+// User Dashboard
+app.get("/user/dashboard",ensureAuthenticated, async(req, res)=>{
+  const textModel = await TextModel.find({ username: req.user.username });
+  res.render("AdminPanel",{textModel});
+});
+
+
 
 // Access uploaded data via unique link
 app.get("/access/:link", async (req, res) => {
@@ -243,19 +254,18 @@ app.get("/access/:link", async (req, res) => {
   }
 });
 
-// Admin Routes
-app.get("/admin/dashboard", (req, res) => res.redirect("/admin/login"));
-app.get("/admin/login", (req, res) => res.render("adminLogIn"));
-app.post("/admin/login", (req, res) => {
-  if (
-    req.body.AdminUsername === process.env.ADMIN_USERNAME &&
-    req.body.AdminPassword === process.env.ADMIN_PASSWORD
-  ) {
-    res.render("AdminPanel");
-  } else {
-    res.status(401).send("Unauthorized.");
-  }
-});
+
+// app.get("/admin/login", (req, res) => res.render("adminLogIn"));
+// app.post("/admin/login", (req, res) => {
+//   if (
+//     req.body.AdminUsername === process.env.ADMIN_USERNAME &&
+//     req.body.AdminPassword === process.env.ADMIN_PASSWORD
+//   ) {
+//     res.render("AdminPanel");
+//   } else {
+//     res.status(401).send("Unauthorized.");
+//   }
+// });
 
 // Start the server
 app.listen(process.env.PORT || 3000, () => {

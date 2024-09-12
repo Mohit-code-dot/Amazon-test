@@ -15,7 +15,10 @@ const BrandSchema = new mongoose.Schema({
   PackageInfo: String,
   imgPaths: [String], 
   APlusImgPaths: [String], 
-  accessLink:String
+  accessLink:String,
+  username: { type: String, required: true },  // Add the username field
+  date: { type: Date, default: Date.now },  // Add the date field
+
 });
 
 const TextModel = new mongoose.model("BrandStore", BrandSchema);
