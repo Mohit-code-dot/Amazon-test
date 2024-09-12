@@ -514,9 +514,6 @@ aside .sidebar .message-count {
   body {
     width: 100%;
   }
-  * {
-    /* border: 1px solid red; */
-  }
   .container {
     width: 95%;
     grid-template-columns: 1fr;

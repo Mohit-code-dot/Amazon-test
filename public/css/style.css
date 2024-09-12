@@ -173,6 +173,7 @@ main {
 .dashboard {
   width: 0px;
   margin-top: -2rem;
+  padding-bottom: 4.05rem;
   display: flex;
   justify-content: center;
   align-items: center;

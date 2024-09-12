@@ -91,7 +91,7 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   res.redirect("/login");
 };
-
+ 
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
   res.render("index");
