@@ -143,7 +143,7 @@
             <tbody>
               <% textModel.forEach(function(text) { %>
               <tr>
-                <td><a href="/access/<%= text.accessLink %>">Preview Link</a></td>
+                <td><a href="/access/<%= text.accessLink %>" target="_blank">Preview Link</a></td>
                 <td><%= text.date.toLocaleString() %></td>
               </tr>
               <% }); %>
