@@ -28,11 +28,11 @@ app.use(flash());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    resave: false, // This should be false to avoid unnecessary session saves
+    saveUninitialized: true, // Set to true to save session even if uninitialized
     cookie: {
-      secure: app.get("env") === "production",
-      maxAge: 60000,
+      secure: app.get("env") === "production", // Ensure secure cookies in production
+      maxAge: 60000, // Set the session timeout (can increase if necessary)
     },
   })
 );
@@ -75,23 +75,26 @@ passport.use(
   })
 );
 
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => {
+  done(null, user.id);  // Serialize the user by id
+});
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id);  // Find user by id during deserialization
     done(null, user);
   } catch (err) {
     done(err, null);
   }
 });
 
+
 // Ensure the user is authenticated
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   res.redirect("/login");
 };
- 
+
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
   res.render("index");
@@ -137,7 +140,10 @@ app.post(
     successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
-  })
+  }),
+  (req, res) => {
+    console.log("Logged in user:", req.user); // This should show the user info
+  }
 );
 
 app.get("/logout", (req, res, next) => {
@@ -166,6 +172,7 @@ const uploadFiles = async (filesArray, prefix) => {
 
 // Handling image and text submission
 app.post("/", ensureAuthenticated, async (req, res) => {
+  console.log("Current session user:", req.user);  
   const {
     title,
     bulletPoint01,
@@ -213,14 +220,14 @@ app.post("/", ensureAuthenticated, async (req, res) => {
       price,
       brandName,
       itemForm,
-      manufacture, 
+      manufacture,
       quantity,
       PackageInfo,
       imgPaths,
       APlusImgPaths,
       accessLink,
-      username: req.user.username,  // Store the username of the current user
-      date: Date.now(),  // This will be automatically set by the schema
+      username: req.user.username, // Store the username of the current user
+      date: Date.now(), // This will be automatically set by the schema
     });
 
     await textModel.save();
@@ -232,14 +239,11 @@ app.post("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-
 // User Dashboard
-app.get("/user/dashboard",ensureAuthenticated, async(req, res)=>{
+app.get("/user/dashboard", ensureAuthenticated, async (req, res) => {
   const textModel = await TextModel.find({ username: req.user.username });
-  res.render("AdminPanel",{textModel});
+  res.render("AdminPanel", { textModel });
 });
-
-
 
 // Access uploaded data via unique link
 app.get("/access/:link", async (req, res) => {
@@ -253,7 +257,6 @@ app.get("/access/:link", async (req, res) => {
     res.status(500).send("Error retrieving data.");
   }
 });
-
 
 // app.get("/admin/login", (req, res) => res.render("adminLogIn"));
 // app.post("/admin/login", (req, res) => {
