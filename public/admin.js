@@ -15,26 +15,26 @@ sidebar.forEach((value) => {
     });
 });
 
-// show sidebar
-menuBtn.addEventListener("click",()=>{
-    sideMenu.style.display = "block";
-})
+// // show sidebar
+// menuBtn.addEventListener("click",()=>{
+//     sideMenu.style.display = "block";
+// })
 
-// close sidebar
-closeBtn.addEventListener("click",()=>{
-    sideMenu.style.display = "none";
-})
+// // close sidebar
+// closeBtn.addEventListener("click",()=>{
+//     sideMenu.style.display = "none";
+// })
 
-// Show dashboard
-ondashboard.addEventListener("click",()=>{
-    adminMain.style.display = "block";
-    ProductWrapper.style.display = "none";
-})
-// Show Product
-AmazonProductTool.addEventListener("click",()=>{
-    ProductWrapper.style.display = "block";
-    adminMain.style.display = "none";
-})
+// // Show dashboard
+// ondashboard.addEventListener("click",()=>{
+//     adminMain.style.display = "block";
+//     ProductWrapper.style.display = "none";
+// })
+// // Show Product
+// AmazonProductTool.addEventListener("click",()=>{
+//     ProductWrapper.style.display = "block";
+//     adminMain.style.display = "none";
+// })
 
 // change theme
 themeToggle.addEventListener("click",()=>{
