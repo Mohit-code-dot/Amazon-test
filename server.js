@@ -28,10 +28,10 @@ app.use(flash());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false, // Set to false unless session needs to be created for unauthenticated users
+    resave: false, // This should be false to avoid unnecessary session saves
+    saveUninitialized: true, // Set to true to save session even if uninitialized
     cookie: {
-      secure: app.get("env") === "production",
+      secure: app.get("env") === "production", // Ensure secure cookies in production
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
   })
@@ -76,31 +76,24 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id); // Ensure the `user.id` is being serialized
+  done(null, user.id);  // Serialize the user by id
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id);
-    if (!user) {
-      return done(new Error("User not found"));
-    }
-    done(null, user); // Attach the user to `req.user`
+    const user = await User.findById(id);  // Find user by id during deserialization
+    done(null, user);
   } catch (err) {
     done(err, null);
   }
 });
 
 
-
 // Ensure the user is authenticated
 const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next(); // Proceed if the user is authenticated
-  }
-  res.redirect("/login"); // Redirect to login if not authenticated
+  if (req.isAuthenticated()) return next();
+  res.redirect("/login");
 };
-
 
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
@@ -137,14 +130,9 @@ app.post("/register", async (req, res) => {
 });
 
 // Login route
-// Login route
 app.get("/login", (req, res) => {
-  if (req.isAuthenticated()) {
-    return res.redirect("/user/dashboard"); // Redirect to dashboard if already logged in
-  }
   res.render("login", { message: req.flash("error") });
 });
-
 
 app.post(
   "/login",
@@ -253,12 +241,9 @@ app.post("/", ensureAuthenticated, async (req, res) => {
 
 // User Dashboard
 app.get("/user/dashboard", ensureAuthenticated, async (req, res) => {
-  console.log("Session Data:", req.session); // Debugging session data
-  console.log("Authenticated User:", req.user); // Debugging user
   const textModel = await TextModel.find({ username: req.user.username });
   res.render("AdminPanel", { textModel });
 });
-
 
 // Access uploaded data via unique link
 app.get("/access/:link", async (req, res) => {
