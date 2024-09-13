@@ -28,14 +28,15 @@ app.use(flash());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false, // This should be false to avoid unnecessary session saves
-    saveUninitialized: true, // Set to true to save session even if uninitialized
+    resave: false, // Avoid unnecessary session resaves
+    saveUninitialized: false, // Only save the session if something is stored
     cookie: {
-      secure: app.get("env") === "production", // Ensure secure cookies in production
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      secure: app.get("env") === "production", // Secure cookie in production
+      maxAge: 6000000,
     },
   })
 );
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -76,12 +77,12 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);  // Serialize the user by id
+  done(null, user.id);  // Serialize user by id
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id);  // Find user by id during deserialization
+    const user = await User.findById(id);
     done(null, user);
   } catch (err) {
     done(err, null);
@@ -91,9 +92,12 @@ passport.deserializeUser(async (id, done) => {
 
 // Ensure the user is authenticated
 const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
+  if (req.isAuthenticated()) {
+    return next();
+  }
   res.redirect("/login");
 };
+
 
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
@@ -140,11 +144,9 @@ app.post(
     successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
-  }),
-  (req, res) => {
-    console.log("Logged in user:", req.user); // This should show the user info
-  }
+  })
 );
+
 
 app.get("/logout", (req, res, next) => {
   req.logout((err) => {
@@ -171,8 +173,7 @@ const uploadFiles = async (filesArray, prefix) => {
 };
 
 // Handling image and text submission
-app.post("/", ensureAuthenticated, async (req, res) => {
-  console.log("Current session user:", req.user);  
+app.post("/", async (req, res) => {
   const {
     title,
     bulletPoint01,
@@ -240,7 +241,7 @@ app.post("/", ensureAuthenticated, async (req, res) => {
 });
 
 // User Dashboard
-app.get("/user/dashboard", ensureAuthenticated, async (req, res) => {
+app.get("/user/dashboard",ensureAuthenticated, async (req, res) => {
   const textModel = await TextModel.find({ username: req.user.username });
   res.render("AdminPanel", { textModel });
 });
