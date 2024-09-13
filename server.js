@@ -32,7 +32,7 @@ app.use(
     saveUninitialized: true, // Set to true to save session even if uninitialized
     cookie: {
       secure: app.get("env") === "production", // Ensure secure cookies in production
-      maxAge: 60000, // Set the session timeout (can increase if necessary)
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
   })
 );
@@ -130,9 +130,14 @@ app.post("/register", async (req, res) => {
 });
 
 // Login route
+// Login route
 app.get("/login", (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/user/dashboard"); // Redirect to dashboard if already logged in
+  }
   res.render("login", { message: req.flash("error") });
 });
+
 
 app.post(
   "/login",
