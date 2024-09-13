@@ -32,7 +32,7 @@ app.use(
     saveUninitialized: false, // Only save the session if something is stored
     cookie: {
       secure: app.get("env") === "production", // Secure cookie in production
-      maxAge: 6000000,
+      maxAge: 86400000, // 24 hours
     },
   })
 );
@@ -173,7 +173,7 @@ const uploadFiles = async (filesArray, prefix) => {
 };
 
 // Handling image and text submission
-app.post("/", async (req, res) => {
+app.post("/",ensureAuthenticated, async (req, res) => {
   const {
     title,
     bulletPoint01,
