@@ -101,9 +101,9 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
+  req.flash("error", "You need to be logged in to access this page.");
   res.redirect("/login");
 };
-
 
 
 // Routes
@@ -145,34 +145,40 @@ app.get("/login", (req, res) => {
   res.render("login", { message: req.flash("error") });
 });
 
-app.post(
-  "/login",
-  (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
+// "Remember Me" functionality inside login route
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) return next(err);
+    if (!user) {
+      req.flash("error", info.message || "Login failed.");
+      return res.redirect("/login");
+    }
+
+    req.logIn(user, (err) => {
       if (err) return next(err);
-      if (!user) return res.redirect("/login");
 
-      req.logIn(user, (err) => {
-        if (err) return next(err);
+      // Set "Remember Me" functionality
+      if (req.body.rememberMe) {
+        req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // 30 days
+      } else {
+        req.session.cookie.expires = false; // Session expires on browser close
+      }
 
-        // If "Remember Me" is checked, extend the session expiration time
-        if (req.body.rememberMe) {
-          req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // 30 days
-        } else {
-          req.session.cookie.expires = false; // Session expires on browser close
-        }
-
-        return res.redirect("/");
-      });
-    })(req, res, next);
-  }
-);
+      req.flash("success", "Successfully logged in.");
+      return res.redirect("/");
+    });
+  })(req, res, next);
+});
 
 
+// Error-handling route for the logout process
 app.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
-    res.redirect("/login");
+    req.session.destroy(() => {
+      res.clearCookie("connect.sid"); // Clears session cookie
+      res.redirect("/login");
+    });
   });
 });
 
