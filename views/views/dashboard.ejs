@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Welcome, <%= user.username %>!</h1>
+    <h1>Welcome, <%= user.username %>!</h1>
+
+<h2>Your Uploaded Texts:</h2>
+<ul>
+  <% userTexts.forEach(function(text) { %>
+    <li>
+      <strong>Title:</strong> <%= text.title %><br>
+      <strong>Price:</strong> <%= text.price %><br>
+      <a href="/access/<%= text.accessLink %>">View Details</a>
+    </li>
+  <% }); %>
+</ul>
+
+    
+</body>
+</html>

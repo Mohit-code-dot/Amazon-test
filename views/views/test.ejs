@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav01">
+          <img loading="lazy" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+        </div>
+        <div class="nav02">
+          <div class="nav02img">
+            <img loading="lazy" src="../Img/location.png" alt="" srcset="" />
+          </div>
+          <div class="nav02text">
+            <span>Deliver To</span><br />
+            <span>United States</span>
+          </div>
+        </div>
+        <div class="nav03">
+          <button>
+            All
+            <img loading="lazy" src="../Img/downward-arrow.png" alt="" srcset="" />
+          </button>
+          <input type="text" placeholder="Search Amazon" />
+          <button><img loading="lazy" src="../Img/search.png" alt="" srcset="" /></button>
+        </div>
+        <div class="nav04">
+          <img loading="lazy" src="../Img/Flag_of_the_United_States.png" alt="" srcset="" />
+          EN
+        </div>
+        <div class="nav05">
+          <span>Account & Lists</span>
+        </div>
+        <div class="nav06">
+          <span
+            >Returns <br />
+            & Order</span
+          >
+        </div>
+        <div class="nav07">Cart</div>
+      </nav>
+    </header>
+    <div class="subHeader">
+      <ul>
+        <li>All</li>
+        <li>Today's Deals</li>
+        <li>Customer Service</li>
+        <li>Your Amazon.com</li>
+        <li>Buy Again</li>
+        <li>Sell</li>
+        <li>Gift Cards</li>
+        <li>Browsing History</li>
+        <li>Registry</li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="mainImg">
+        <div class="ListingImage">
+          <% textModel.imgPaths.forEach((value)=> {%>
+          <img loading="lazy" id="SmallListingImage" src="<%= value %>" alt="" srcset="" />
+          <% });%>
+        </div>
+        <div class="mainBigImage image-container" id="image-container">
+          <img loading="lazy" src="<%= textModel.imgPaths[0] %>" alt="" srcset="" />
+          <div id="mouse-overlay"></div>
+          <div id="overlay"></div>
+        </div>
+      </div>
+      <div class="mainContent">
+        <div class="Content">
+          <div class="AmazonHeading">
+            <h1 id="AmazonTitle"><%= textModel.title %></h1>
+            <a href="#">Visit the Atlantic Naturals Store</a>
+            <div class="ratingDiv">
+              <div class="stars">
+                <div class="starNumber">4</div>
+                <div class="starImage">
+                  <img loading="lazy" src="../Img/rating.png" alt="" srcset="" />
+                  <img loading="lazy" src="../Img/down.png" alt="" srcset="" />
+                </div>
+              </div>
+              <div class="rating">
+                <a href="#">851 ratings</a>
+              </div>
+              <span>|</span>
+              <div class="searchPage">
+                <a href="#">Search this page</a>
+              </div>
+            </div>
+            <hr width="90%" />
+            <h3 id="Price"></h3>
+          </div>
+          <div class="brandDetail">
+            <div>
+              <h2>
+                This item cannot be shipped to your selected delivery location.
+                Please choose a different delivery location.
+              </h2>
+            </div>
+            <div>
+              <table>
+                <tr>
+                  <td><b>Brand</b></td>
+                  <td id="detail01"><%= textModel.brandName %></td>
+                </tr>
+                <tr>
+                  <td><b>Item Form</b></td>
+                  <td id="detail02"><%= textModel.itemForm %></td>
+                </tr>
+                <tr>
+                  <td><b>Manufacturer</b></td>
+                  <td id="detail03"><%= textModel.manufacture %></td>
+                </tr>
+                <tr>
+                  <td><b>Item Package Quantity</b></td>
+                  <td id="detail04"><%= textModel.quantity %></td>
+                </tr>
+                <tr>
+                  <td><b>Package Information</b></td>
+                  <td id="detail05"><%= textModel.PackageInfo %></td>
+                </tr>
+              </table>
+            </div>
+            <hr width="90%" />
+          </div>
+          <div id="BulletPoints">
+            <ul>
+              <h2>About this item</h2>
+              <li id="AmazonSubTitle01"><%= textModel.bulletPoint01 %></li>
+              <li id="AmazonSubTitle02"><%= textModel.bulletPoint02 %></li>
+              <li id="AmazonSubTitle03"><%= textModel.bulletPoint03 %></li>
+              <li id="AmazonSubTitle04"><%= textModel.bulletPoint04 %></li>
+              <li id="AmazonSubTitle05"><%= textModel.bulletPoint05 %></li>
+              <li id="AmazonSubTitle06"><%= textModel.bulletPoint06 %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="div" style="width: 40%"></div>
+      </div>
+    </main>
+    <div class="AplusImage">
+      <% textModel.APlusImgPaths.forEach((value)=> {%>
+      <img loading="lazy" src="<%= value %>" alt="" srcset="" />
+      <% });%>
+    </div>
+
+    <script>
+      const SmallListingImage = document.querySelectorAll("#SmallListingImage");
+      const mainBigImage = document.querySelector(".mainBigImage img");
+      SmallListingImage.forEach((value) => {
+        value.addEventListener("mouseover", () => {
+          mainBigImage.src = value.src;
+        });
+      });
+    </script>
+  </body>
+</html>
