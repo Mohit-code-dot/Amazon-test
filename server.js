@@ -105,7 +105,6 @@ const ensureAuthenticated = (req, res, next) => {
 };
 
 
-
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
   res.render("index");
@@ -154,14 +153,6 @@ app.post(
 
       req.logIn(user, (err) => {
         if (err) return next(err);
-
-        // If "Remember Me" is checked, extend the session expiration time
-        if (req.body.rememberMe) {
-          req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // 30 days
-        } else {
-          req.session.cookie.expires = false; // Session expires on browser close
-        }
-
         return res.redirect("/");
       });
     })(req, res, next);
