@@ -31,7 +31,7 @@ app.use(
     resave: false, // Avoid unnecessary session resaves
     saveUninitialized: false, // Only save the session if something is stored
     cookie: {
-      secure: app.get("env") === "production", // Secure cookie in production
+      secure: false, // Secure cookie in production
       maxAge: 86400000, // 24 hours
     },
   })
