@@ -11,6 +11,7 @@ const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
 const compression = require("compression");
 const fileUpload = require("express-fileupload");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 
 const app = express();
@@ -31,9 +32,14 @@ app.use(
     resave: false, // Avoid unnecessary session resaves
     saveUninitialized: false, // Only save the session if something is stored
     cookie: {
-      secure: false, // Secure cookie in production
-      maxAge: 86400000, // 24 hours
+      secure: false, // Set to true if you're using https in production
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days for persistent session
     },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URL,
+      ttl: 30 * 24 * 60 * 60, // Expire the session after 30 days
+      autoRemove: 'native', // Remove expired sessions
+    }),
   })
 );
 
@@ -99,6 +105,7 @@ const ensureAuthenticated = (req, res, next) => {
 };
 
 
+
 // Routes
 app.get("/", ensureAuthenticated, (req, res) => {
   res.render("index");
@@ -140,11 +147,25 @@ app.get("/login", (req, res) => {
 
 app.post(
   "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-  })
+  (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+      if (err) return next(err);
+      if (!user) return res.redirect("/login");
+
+      req.logIn(user, (err) => {
+        if (err) return next(err);
+
+        // If "Remember Me" is checked, extend the session expiration time
+        if (req.body.rememberMe) {
+          req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // 30 days
+        } else {
+          req.session.cookie.expires = false; // Session expires on browser close
+        }
+
+        return res.redirect("/");
+      });
+    })(req, res, next);
+  }
 );
 
 
@@ -258,18 +279,6 @@ app.get("/access/:link", async (req, res) => {
     res.status(500).send("Error retrieving data.");
   }
 });
-
-// app.get("/admin/login", (req, res) => res.render("adminLogIn"));
-// app.post("/admin/login", (req, res) => {
-//   if (
-//     req.body.AdminUsername === process.env.ADMIN_USERNAME &&
-//     req.body.AdminPassword === process.env.ADMIN_PASSWORD
-//   ) {
-//     res.render("AdminPanel");
-//   } else {
-//     res.status(401).send("Unauthorized.");
-//   }
-// });
 
 // Start the server
 app.listen(process.env.PORT || 3000, () => {
