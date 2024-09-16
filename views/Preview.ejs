@@ -10,7 +10,10 @@
     <header>
       <nav>
         <div class="nav01">
-          <img loading="lazy" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+          <img
+            loading="lazy"
+            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          />
         </div>
         <div class="nav02">
           <div class="nav02img">
@@ -24,13 +27,25 @@
         <div class="nav03">
           <button>
             All
-            <img loading="lazy" src="../Img/downward-arrow.png" alt="" srcset="" />
+            <img
+              loading="lazy"
+              src="../Img/downward-arrow.png"
+              alt=""
+              srcset=""
+            />
           </button>
           <input type="text" placeholder="Search Amazon" />
-          <button><img loading="lazy" src="../Img/search.png" alt="" srcset="" /></button>
+          <button>
+            <img loading="lazy" src="../Img/search.png" alt="" srcset="" />
+          </button>
         </div>
         <div class="nav04">
-          <img loading="lazy" src="../Img/Flag_of_the_United_States.png" alt="" srcset="" />
+          <img
+            loading="lazy"
+            src="../Img/Flag_of_the_United_States.png"
+            alt=""
+            srcset=""
+          />
           EN
         </div>
         <div class="nav05">
@@ -45,7 +60,7 @@
         <div class="nav07">Cart</div>
       </nav>
     </header>
-    <div class="subHeader">
+    <div class="subHeader" style="position: relative">
       <ul>
         <li>All</li>
         <li>Today's Deals</li>
@@ -56,7 +71,24 @@
         <li>Gift Cards</li>
         <li>Browsing History</li>
         <li>Registry</li>
-        <li id="dashboardLink"><a href="/user/dashboard">Dashboard</a></li>
+        <li id="dashboardLink"><a href="/user/dashboard"><img src="../Img/user.png" alt=""></a></li>
+        <li style="position: absolute; right: 0; top: 0%">
+          <a
+            href="/logout"
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+            "
+            ><img
+              loading="lazy"
+              width="5%"
+              src="../Img/logout.png"
+              alt=""
+              srcset=""
+          /></a>
+        </li>
       </ul>
     </div>
 
