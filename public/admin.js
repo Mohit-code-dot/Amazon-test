@@ -2,18 +2,37 @@ const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggle = document.querySelector(".theme-toggler");
-const ProductWrapper = document.querySelector(".ProductWrapper");
-const ondashboard = document.querySelector("#ondashboard");
-const adminMain = document.querySelector("#adminMain");
-const AmazonProductTool = document.querySelector("#AmazonProductTool");
 const sidebar = document.querySelectorAll(".sidebar a");
+const sidebarh3 = document.querySelectorAll(".sidebar a h3");
+const recentOrder = document.querySelector(".recent-orders")
+const dashboard = document.querySelector(".dashboard")
 
 sidebar.forEach((value) => {
     value.addEventListener("click", () => {
         sidebar.forEach((link) => link.classList.remove("active"));
         value.classList.add("active");
+        // value.childNodes.forEach((element)=>{
+        //     if(element.textContent === "Generate Preview Links"){
+        //         recentOrder.style.display = "none";
+        //         dashboard.style.display = "flex";
+        //     }
+        //     else{
+        //         recentOrder.style.display = "block";
+        //         dashboard.style.display = "none";
+        //     }
+        // })
     });
 });
+
+function showDashboard(){
+    dashboard.style.display = "flex";
+    recentOrder.style.display = "none";
+}
+function hideDashboard(){
+    dashboard.style.display = "none";
+    recentOrder.style.display = "block";
+}
+
 
 // // show sidebar
 // menuBtn.addEventListener("click",()=>{
