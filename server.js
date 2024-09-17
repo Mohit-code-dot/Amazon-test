@@ -107,9 +107,9 @@ const ensureAuthenticated = (req, res, next) => {
 
 
 // Routes
-// app.get("/", ensureAuthenticated, (req, res) => {
-//   res.render("index");
-// });
+app.get("/", ensureAuthenticated, (req, res) => {
+  res.redirect("/user/dashboard");
+});
 
 // User registration
 app.get("/register", (req, res) => {
